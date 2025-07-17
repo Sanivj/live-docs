@@ -17,6 +17,7 @@ import EditorReadyPlugin from './plugins/EditorReadyPlugin';
 import FloatingToolbarPlugin from './plugins/FloatingToolbarPlugin';
 import { useThreads } from '@liveblocks/react/suspense';
 import Comments from '../Comments';
+import { DeleteModal } from '../DeleteModal';
 // Catch any errors that occur during Lexical updates and log them
 // or throw them as needed. If you don't throw them, Lexical will
 // try to recover gracefully without losing user data.
@@ -46,7 +47,7 @@ export function Editor({roomId,currentUserType}:{roomId:string, currentUserType:
       <div className="editor-container size-full">
         <div className='z-50 custom-scrollbar w-screen overflow-auto border-y border-dark-300 bg-dark-100 pl-3 pr-4 shadow-sm flex min-w-full justify-between'>
           <ToolbarPlugin />
-          {/*currentUserType==='editor'&&<DeleteModal roomId={roomId}/>*/}
+          currentUserType==='editor'&&<DeleteModal roomId={roomId}/>
         </div>
         <div className='custom-scrollbar h-[calc(100vh-140px)] gap-5 overflow-auto px-5 pt-5 lg:flex-row lg:items-start lg:justify-center  xl:gap-10 xl:pt-10 flex flex-col itmes-center justify-start'>
           {!isLoaded?<Loader/>:(
